@@ -76,6 +76,12 @@
                         </a>
                     </li>
                     <li class="nxl-item nxl-hasmenu">
+                        <a href="{{ route('admin.banner.index') }}" class="nxl-link">
+                            <span class="nxl-micon"><i class="feather-link"></i></span>
+                            <span class="nxl-mtext">Banner</span>
+                        </a>
+                    </li>
+                    <li class="nxl-item nxl-hasmenu">
                         <a href="{{ route('admin.akun.index') }}" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-user"></i></span>
                             <span class="nxl-mtext">Admin</span>

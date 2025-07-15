@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\BannerController;
 // use App\Http\Controllers\FasilitasController;
 
 /*
@@ -50,6 +51,7 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(
     Route::resource('kegiatan', KegiatanController::class);
     Route::resource('facilitie', FacilitieController::class);
     Route::resource('partner', PartnerController::class);
+    Route::resource('banner', BannerController::class);
 });
 
 Route::middleware(['auth', 'super_admin'])->prefix('admin')->name('admin.')->group(function () {
