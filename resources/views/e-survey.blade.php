@@ -27,6 +27,7 @@
         }
         .form-control-sm {
             height: calc(1.5em + .5rem + 2px); /* Adjust height for small inputs */
+            padding: 0 10px;
         }
     </style>
     <div class="breadcrumb__area header__background-color breadcrumb__header-up breadcrumb-space overly overflow-hidden">
@@ -53,24 +54,24 @@
     <section class="pricing-appointment section-space">
         <div class="containerSurvey container">
             <div class="row align-items-end mb-60 mb-sm-50 mb-xs-40">
-                <div class="col-lg-6">
+                <div class="col-12">
                     <div class="section__title-wrapper">
                         <h5 class="section__subtitle color-theme-primary mb-15 mb-xs-10 title-animation"><img src="assets/imgs/ask-quesiton/heart.png" alt="icon not found" class="img-fluid"> Take Appointment</h5>
-                        <h2 class="section__title mb-0 title-animation">Radiant Resilience Your Wellness Your Strength</h2>
+                        <h2 class="section__title mb-0 title-animation">KUESIONER SURVEI KEPUASAN MASYARAKAT (SKM)</h2>
                     </div>
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-12">
                     <div class="pricing-appointment__content-right mt-md-25 mt-sm-25 mt-xs-25">
-                        <p class="mb-0">Medical science encompasses a vast array of fields dedicated to understanding and treating ailments, promoting health, and enhanci quality of life. Here's a brief exploration into this multifaceted domain medical student company remain</p>
+                        <p class="mb-0">PADA UNIT LAYANAN UPT PUSKESMAS CIKALONG KABUPATEN TASIKMALAYA</p>
                     </div>
                 </div>
             </div>
 
             <form id="kuesioner-skm-form" method="POST" action="/submit-survey" class="mt-md-60 mt-sm-60 mt-xs-60">
                 @csrf <div class="text-center mb-4">
-                    <h5>KUESIONER SURVEI KEPUASAN MASYARAKAT (SKM)</h5>
-                    <p>PADA UNIT LAYANAN UPT PUSKESMAS CIKALONG KABUPATEN TASIKMALAYA</p>
+                    <!-- <h5>KUESIONER SURVEI KEPUASAN MASYARAKAT (SKM)</h5>
+                    <p>PADA UNIT LAYANAN UPT PUSKESMAS CIKALONG KABUPATEN TASIKMALAYA</p> -->
                 </div>
 
                 <hr>
@@ -82,11 +83,11 @@
                     <div class="col-md-10 d-flex align-items-center">
                         <div class="form-check me-4">
                             <input class="form-check-input" type="radio" name="jenis_kelamin" value="L" id="kelaminL">
-                            <label class="form-check-label" for="kelaminL">L</label>
+                            <label class="form-check-label" for="kelaminL">Laki-laki</label>
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="jenis_kelamin" value="P" id="kelaminP">
-                            <label class="form-check-label" for="kelaminP">P</label>
+                            <label class="form-check-label" for="kelaminP">Perempuan</label>
                         </div>
                     </div>
                 </div>
@@ -146,7 +147,7 @@
                         </div>
                         <div class="form-check me-2">
                             <input class="form-check-input" type="radio" name="pekerjaan" value="LAINNYA" id="pekerjaanLainnya">
-                            <label class="form-check-label" for="pekerjaanLainnya">LAINNYA.......</label>
+                            <label class="form-check-label" for="pekerjaanLainnya">LAINNYA...</label>
                         </div>
                         <div class="col-auto">
                             <input type="text" class="form-control form-control-sm" placeholder="(sebutkan)" id="pekerjaanLainnyaText" name="pekerjaan_lainnya">
@@ -164,7 +165,7 @@
                 <hr>
 
                 <h4 class="text-center">II. PENDAPAT RESPONDEN TENTANG PELAYANAN</h4>
-                <p class="text-center">(Lingkari kode huruf sesuai jawaban masyarakat/responden)</p>
+                <p class="text-center">(Pilih kode huruf sesuai jawaban masyarakat/responden)</p>
 
                 <div class="row">
                     <div class="col-md-6">

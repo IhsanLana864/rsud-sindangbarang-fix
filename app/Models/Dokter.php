@@ -11,6 +11,7 @@ class Dokter extends Model
 
     protected $fillable = [
         'nama',
-        'spesifikasi'
+        'spesifikasi',
+        'foto'
     ];
 }

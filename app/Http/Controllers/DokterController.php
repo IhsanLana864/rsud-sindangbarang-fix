@@ -22,10 +22,23 @@ class DokterController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:255',
-            'spesifikasi' => 'required|string|max:255'
+            'spesifikasi' => 'required|string|max:255',
+            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+        $fotoPath = null;
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $fotoPath = $file->store('dokter', 'public'); 
+        }
+
         Dokter::create($request->all());
+
+        Dokter::create([
+            'nama' => $equest->nama,,
+            'spesifikasi' => $request->spesifikasi,
+            'foto' => $fotoPath
+        ]);
 
         return redirect()->route('admin.dokter.index')->with('success', 'Data Dokter berhasil ditambah');
     }
@@ -38,18 +51,40 @@ class DokterController extends Controller
     public function update(Request $request, Dokter $dokter)
     {
         // Validasi data input
-        $request->validate([
+        $validatedData = $request->validate([
             'nama' => 'required|string|max:255',
-            'spesifikasi' => 'required|string|max:255'
+            'spesifikasi' => 'required|string|max:255',
+            'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $dokter->update($request->all());
+        $imagePath = $dokter->foto;
+
+        if ($request->hasFile('foto')) {
+            // Hapus gambar lama dari storage jika ada
+            if ($dokter->foto) {
+                Storage::disk('public')->delete($dokter->foto);
+            }
+            // Simpan gambar baru
+            $imagePath = $request->file('foto')->store('dokter', 'public');
+        }
+
+        $dataToUpdate = $validatedData;
+
+        $dataToUpdate['foto'] = $imagePath;
+
+        $dokter->update($dataToUpdate);
+
+        // $dokter->update($request->all());
 
         return redirect()->route('admin.dokter.index')->with('success', 'Data Dokter berhasil diperbarui!');
     }
 
     public function destroy(Dokter $dokter)
     {
+        if ($dokter->foto) { 
+            Storage::disk('public')->delete($dokter->foto);
+        }
+
         $dokter->delete();
 
         return redirect()->route('admin.dokter.index')->with('success', 'Data Dokter berhasil dihapus!');
