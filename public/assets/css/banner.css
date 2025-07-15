@@ -1,0 +1,221 @@
+:root {
+            --color-utama: #009999;
+            --color-utama-terang: #6BFBE0;
+            --color-merah-aksen: #D0021B;
+            --color-utama-gelap: #007f7f;
+            --color-putih: #FFFFFF;
+            --color-teks-gelap: #333333;
+            --color-bg-terang: #F8F9FA;
+            --color-border: #e9ecef;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--color-teks-gelap);
+            line-height: 1.6;
+            background-color: var(--color-putih);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        a { text-decoration: none; transition: color 0.3s; }
+
+        /* 2. HEADER (Dengan Perbaikan Bug Layout) */
+        .site-header {
+            background-color: var(--color-putih);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-main { padding: 15px 0; }
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .site-logo img { max-height: 55px; }
+
+        .main-nav ul { list-style: none; display: flex; gap: 35px; }
+        .main-nav li { position: relative; }
+        .main-nav > ul > li > a {
+            color: var(--color-teks-gelap);
+            font-weight: 600;
+            padding-bottom: 8px;
+        }
+        .main-nav > ul > li > a:hover { color: var(--color-utama); }
+        .main-nav > ul > li > a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background-color: var(--color-utama);
+            border-radius: 2px;
+            transition: width 0.4s ease;
+        }
+        .main-nav > ul > li.active > a::after,
+        .main-nav > ul > li > a:hover::after { width: 100%; }
+
+        .submenu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translate(-50%, 10px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            background-color: var(--color-putih);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 10px 0;
+            min-width: 220px;
+            z-index: 1001;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .main-nav li:hover > .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, 0);
+        }
+
+        .submenu li {
+            display: block;
+        }
+
+        .submenu li a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--color-teks-gelap);
+            white-space: nowrap;
+        }
+        .submenu li a:hover { background-color: var(--color-bg-terang); color: var(--color-utama); }
+
+        .header-right { display: flex; align-items: center; gap: 20px; }
+        .header-emergency-contact {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 15px;
+            background-color: var(--color-merah-aksen);
+            border-radius: 50px;
+            color: var(--color-putih);
+        }
+        .header-emergency-contact .icon { font-size: 20px; }
+        .header-emergency-contact .text p { margin: 0; font-size: 12px; line-height: 1.2; }
+        .header-emergency-contact .text h5 { margin: 0; font-size: 16px; line-height: 1.2; }
+        .header-emergency-contact .text h5 a { color: var(--color-putih); font-weight: 700; }
+
+        .mobile-nav-toggle { display: none; font-size: 24px; background: none; border: none; cursor: pointer; color: var(--color-utama); }
+
+        /* 3. HERO SLIDER */
+        .hero-slider { width: 100%; height: 85vh; min-height: 500px; max-height: 800px; }
+        .hero-slider .swiper-slide { position: relative; display: flex; align-items: center; justify-content: center; }
+        .hero-slider .slide-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+        .hero-slider .slide-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 80, 80, 0.65); z-index: 2; }
+        .hero-content { position: relative; z-index: 3; color: var(--color-putih); text-align: center; max-width: 800px; padding: 20px; }
+        .hero-content h1 { font-size: 3rem; font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 30px; font-weight: 400; }
+        .hero-buttons .rr-btn { padding: 12px 30px; border-radius: 50px; font-weight: 700; transition: all 0.3s; margin: 0 10px; border: 2px solid var(--color-utama-terang); background-color: var(--color-utama-terang); color: var(--color-teks-gelap); }
+        .hero-buttons .rr-btn:hover { background-color: transparent; color: var(--color-utama-terang); transform: translateY(-3px); }
+        .hero-buttons .btn-emergency { border-color: var(--color-merah-aksen); background-color: var(--color-merah-aksen); color: var(--color-putih); }
+        .hero-buttons .btn-emergency:hover { background-color: transparent; color: var(--color-merah-aksen); }
+        .hero-slider .swiper-button-next, .hero-slider .swiper-button-prev { color: var(--color-putih); }
+        .hero-slider .swiper-pagination-bullet { background: rgba(255, 255, 255, 0.7); width: 12px; height: 12px; opacity: 1; }
+        .hero-slider .swiper-pagination-bullet-active { background: var(--color-putih); }
+
+        /* 5. FOOTER */
+        .site-footer {
+            background-color: var(--color-utama);
+            color: var(--color-bg-terang);
+            padding: 80px 0 0;
+        }
+        .footer-widgets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .footer-widget {
+            flex: 1;
+            min-width: 220px;
+        }
+        .footer-widget-title h4 {
+            color: var(--color-putih);
+            font-size: 18px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .footer-widget-title h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--color-utama-terang);
+        }
+        .footer-widget .footer-logo img { max-width: 200px; margin-bottom: 20px; filter: brightness(0) invert(1); }
+        .footer-widget p, .footer-widget ul li a {
+            color: var(--color-bg-terang);
+            opacity: 0.9;
+        }
+        .footer-widget ul { list-style: none; }
+        .footer-widget ul li { margin-bottom: 12px; }
+        .footer-widget ul li a:hover { color: var(--color-utama-terang); }
+        .footer-widget ul i { margin-right: 10px; width: 20px; text-align: center; }
+        .footer-social a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            color: var(--color-putih);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .footer-social a:hover { background-color: var(--color-utama-terang); color: var(--color-teks-gelap); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 25px 0;
+            font-size: 14px;
+        }
+        .footer-bottom .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .copyright-menu ul { display: flex; gap: 20px; list-style: none; }
+        .copyright-menu a { color: var(--color-bg-terang); }
+        .copyright-menu a:hover { color: var(--color-putih); }
+
+        /* 4. RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .main-nav, .header-emergency-contact { display: none; }
+            .mobile-nav-toggle { display: block; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1rem; }
+        }
+        @media (max-width: 768px) {
+            .header-top { display: none; }
+            .hero-buttons { display: flex; flex-direction: column; gap: 15px; }
+            .footer-bottom .container { flex-direction: column; gap: 15px; text-align: center; }
+        }

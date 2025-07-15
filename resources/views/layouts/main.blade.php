@@ -4,15 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>RSUD Sindangbarang</title>
+    <title>RSUD Sindangbarang - Pelayanan Profesional dan Terpercaya</title>
     <meta name="description" content="RSUD-Sindang Barang">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/favicon.svg">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Swiper.js untuk Slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- CSS here -->
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/animate.min.css') }}">
@@ -21,9 +27,10 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/fontawesome-pro.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/vendor/spacing.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/plugins/odometer-theme-default.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/banner.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-
     <link rel="stylesheet" href="{{ asset('assets/scss/layout/pages/_about-us.scss') }}">
+
 </head>
 
 <body class="body-2">
@@ -109,200 +116,112 @@
     </div>
     <!-- Backtotop end -->
 
-    <!-- Header area start -->
-    <header>
-        <div id="header-sticky" class="header__area header-2">
+   <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+        <div class="header-main">
             <div class="container">
-                <div class="mega__menu-wrapper p-relative">
-                    <div class="header__main">
-                        <div class="header__left d-flex align-items-center">
-                            <div class="header__logo">
-                                <a href="index.html">
-                                    <div class="logo">
-                                        <img src="{{ asset('assets/imgs/logo/logo-rsud.png') }}" alt="Logo RSUD">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="mean__menu-wrapper d-none d-xl-block">
-                                <div class="main-menu main-menu-2">
-                                    <nav id="mobile-menu">
-                                        <ul>
-                                            <li><a href="/">Beranda</a></li>
-                                            <li><a href="/layanan">Layanan & Fasilitas</a></li>
-                                            <li>
-                                                <a href="javascript:void(0)">Profil</a>
-                                                <ul class="submenu">
-                                                    <li><a href="{{ route('profil.tentang-kami') }}">Tentang Kami</a>
-                                                    </li>
-                                                    <li><a href="{{ route('profil.manajemen') }}">Manajemen</a></li>
-                                                    <li><a href="{{ route('profil.dokter') }}">Daftar Dokter</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="/kegiatan">Kegiatan</a></li>
-                                            <li><a href="/berita">Berita & Artikel</a></li>
-                                            <li><a href="/e-survey">e-Survey</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Wrapper untuk logo dan nav -->
+                <div class="header-left">
+                    <a href="index.html" class="site-logo">
+                        <img src="assets/imgs/logo/logo-rsud.png" alt="Logo RSUD">
+                    </a>
+                    <nav class="main-nav">
+                        <ul>
+                            <li class="active"><a href="/">Beranda</a></li>
+                            <li><a href="/layanan">Layanan & Fasilitas</a></li>
+                            <li>
+                                <a href="#">Profil</a>
+                                <ul class="submenu">
+                                    <!-- [PERUBAHAN] Menggunakan href dari permintaan Anda -->
+                                    <li><a href="{{ route('profil.tentang-kami') }}">Tentang Kami</a></li>
+                                    <li><a href="{{ route('profil.manajemen') }}">Manajemen</a></li>
+                                    <li><a href="{{ route('profil.dokter') }}">Daftar Dokter</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="/kegiatan">Kegiatan</a></li>
+                            <li><a href="/berita">Berita & Artikel</a></li>
+                            <li><a href="/e-survey">e-Survey</a></li>
+                        </ul>
+                    </nav>
+                </div>
 
-                        <div class="header__right">
-                            <div class="header__action d-flex align-items-center">
-                                <div class="header__btn-wrap align-items-center d-inline-flex">
-                                    <div class="rr-header-contact-btn d-flex align-items-center d-none d-lg-flex">
-                                        <div class="rr-header-contact-btn__icon">
-                                            <i class="fa-solid fa-phone"></i>
-                                        </div>
-                                        <div class="rr-header-contact-btn__text">
-                                            <p class="mb-0 color-white">Gawat Darurat 24 Jam</p>
-                                            <h5 class="mb-0 color-white"><a href="tel:082130677599">0821-3067-7599</a>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="header__hamburger ml-30 d-xl-none">
-                                    <div class="sidebar__toggle">
-                                        <a class="bar-icon" href="javascript:void(0)">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                <!-- Wrapper untuk elemen kanan -->
+                <div class="header-right">
+                    <div class="header-emergency-contact">
+                        <div class="icon"><i class="fa-solid fa-phone-volume"></i></div>
+                        <div class="text">
+                            <p>Gawat Darurat 24 Jam</p>
+                            <h5><a href="tel:082130677599">0821-3067-7599</a></h5>
                         </div>
                     </div>
+                    <button class="mobile-nav-toggle" aria-label="Buka Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
-    <!-- Header area end -->
 
     <!-- Body main wrapper start -->
     <main class="home-2__background">
         @yield('content')
     </main>
     <!-- Body main wrapper end -->
-
-    <!-- Footer area start -->
-    <footer>
-        <section class="footer-2__area-common theme-bg-color-900 overflow-hidden"
-            data-background="assets/imgs/footer-2/background.png">
-            <div class="containeri">
-                <div class="row mb-minus-50">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-2__widget footer-2__widget-item-1">
-                            <div class="footer-2__logo mb-30 mb-xs-25">
-                                <a href="index.html">
-                                    <img src="{{ asset('assets/imgs/logo/logo-rsud.png') }}" alt="Logo RSUD"> </a>
-                            </div>
-
-                            <div class="footer-2__content">
-                                <p class="mb-0">It is a long established fact that a reader will be distracted</p>
-                            </div>
-
-                            <div class="footer-2__social mt-30 mt-xs-30">
-                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://twitter.com/">
-                                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.0596 6.77295L15.8879 -0.00195312H14.5068L9.44607 5.8806L5.40411 -0.00195312H0.742188L6.85442 8.89352L0.742188 15.998H2.12338L7.4676 9.78587L11.7362 15.998H16.3981L10.0593 6.77295H10.0596ZM8.16787 8.97189L7.54857 8.0861L2.62104 1.03779H4.74248L8.71905 6.726L9.33834 7.61179L14.5074 15.0056H12.386L8.16787 8.97223V8.97189Z"
-                                            fill="white" />
-                                    </svg>
-                                </a>
-                                <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
+<footer class="site-footer">
+        <div class="container">
+            <div class="footer-widgets">
+                <!-- Widget 1: Tentang RSUD & Media Sosial -->
+                <div class="footer-widget" style="flex-basis: 35%;">
+                    <div class="footer-logo">
+                        <img src="assets/imgs/logo/logo-rsud.png" alt="Logo RSUD">
                     </div>
-
-                    <div class="col-lg-2 col-6">
-                        <div class="footer-2__widget footer-2__widget-item-2">
-                            <div class="footer-2__widget-title">
-                                <h4>Services</h4>
-                            </div>
-                            <div class="footer-2__link">
-                                <ul>
-                                    <li><a href="about-us.html">Reliable Rentals</a></li>
-                                    <li><a href="about-us.html">Golden Key Properties</a></li>
-                                    <li><a href="about-us.html">Swift Home Sales</a></li>
-                                    <li><a href="about-us.html">Elite Realty Services</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-6">
-                        <div class="footer-2__widget footer-2__widget-item-3">
-                            <div class="footer-2__widget-title">
-                                <h4>Our Office</h4>
-                            </div>
-
-                            <div class="footer-2__link footer-2__link-location">
-                                <ul>
-                                    <li><a href="mailto:debra.holt@example.com"><i class="fa-solid fa-envelope"></i>
-                                            debra.holt@example.com</a></li>
-                                    <li><a href="https://maps.app.goo.gl/4XYAPDmpesGnSbsC8"><i
-                                                class="fa-solid fa-location-dot"></i> 3891 Ranchview Dr. Richardson,
-                                            California 62639</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer-2__widget footer-2__widget-item-4">
-                            <div class="footer-2__widget-title">
-                                <h4>are you ready to start ?</h4>
-                            </div>
-
-                            <div class="footer-2__subscribe-content">
-                                <p class="mb-30 mb-xs-25 color-white">Custom Software Development Tailored Solutions
-                                    for Your Business Custom Software</p>
-
-                                <div class="footer-2__subscribe d-flex mt-30 mt-xs-25">
-                                    <input type="text" placeholder="Enter Email">
-                                    <button type="submit" class="rr-btn rr-btn__theme">
-                                        <span class="btn-wrap">
-                                            <span class="text-one">Contact Us</span>
-                                            <span class="text-two">Contact Us</span>
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                    <p>Kami berkomitmen untuk memberikan pelayanan kesehatan terbaik yang profesional, ramah, dan berorientasi pada keselamatan pasien.</p>
+                    <div class="footer-social mt-30">
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
-            </div>
 
-            <div class="footer-2__bottom-wrapper">
-                <div class="container">
-                    <div class="footer-2__bottom">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="footer-2__copyright text-lg-start text-center">
-                                    <p class="mb-0">© <a href="index.html">Medilix</a> 2024 | All Rights Reserved
-                                    </p>
-                                </div>
-                            </div>
+                <!-- Widget 2: Layanan Kami -->
+                <div class="footer-widget">
+                    <div class="footer-widget-title"><h4>Layanan Kami</h4></div>
+                    <ul>
+                        <li><a href="#">Gawat Darurat (IGD)</a></li>
+                        <li><a href="#">Rawat Jalan</a></li>
+                        <li><a href="#">Rawat Inap</a></li>
+                        <li><a href="#">Laboratorium</a></li>
+                        <li><a href="#">Radiologi</a></li>
+                    </ul>
+                </div>
 
-                            <div class="col-lg-6">
-                                <div class="footer-2__copyright-menu">
-                                    <ul>
-                                        <li><a href="about-us.html">Trams & Condition</a></li>
-                                        <li><a href="about-us.html">Privacy Policy</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Widget 3: Hubungi Kami -->
+                <div class="footer-widget" style="flex-basis: 30%;">
+                    <div class="footer-widget-title"><h4>Hubungi Kami</h4></div>
+                    <ul>
+                        <li><a href="tel:+62211234567"><i class="fa-solid fa-phone"></i> (021) 123-4567</a></li>
+                        <li><a href="mailto:info@rsud.go.id"><i class="fa-solid fa-envelope"></i> info@rsud.go.id</a></li>
+                        <li><a href="#" target="_blank"><i class="fa-solid fa-location-dot"></i> Jl. Kesehatan No. 1, Kota Sehat, Indonesia</a></li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="copyright-text">
+                    <p class="mb-0">© <a href="index.html" style="color: var(--color-putih); font-weight:600;">RSUD Sindangbarang</a> 2024 | Hak Cipta Dilindungi</p>
+                </div>
+                <div class="copyright-menu">
+                    <ul>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </footer>
+
     <!-- Footer area end -->
 
     <!-- JS here -->
@@ -328,6 +247,9 @@
     <script src="{{ asset('assets/js/plugins/smoothscroll.js') }}"></script>
     <script src="{{ asset('assets/js/vendor/ajax-form.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/banner.js') }}"></script>
+        <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 
 </html>
