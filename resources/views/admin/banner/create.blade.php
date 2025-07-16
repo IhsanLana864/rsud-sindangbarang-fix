@@ -47,7 +47,7 @@
                         @csrf
                         <div class="row">
                             <div class="col-12 mb-4">
-                                <label class="form-label">Logo <span class="text-danger">*</span></label>
+                                <label class="form-label">Banner <span class="text-danger">*</span></label>
                                 <input type="file" class="form-control mb-2" id="gambar_banner_input" name="gambar" required>
                                 @error('gambar')
                                     <div class="text-danger">{{ $message }}</div>

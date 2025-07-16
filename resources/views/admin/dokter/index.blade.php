@@ -54,7 +54,9 @@
                                     @forelse ($dokters as $dokter)
                                         <tr class="single-item">
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $dokter->nama }}</td>
+                                            <td><img src="{{ asset('storage/' . $dokter->foto) }}" alt="Foto"
+                                                    width="50" height="50" style="border-radius: 10px;">
+                                                {{ $dokter->nama }}</td>
                                             <td>{{ $dokter->spesifikasi }}</td>
                                             <td>
                                                 <div class="hstack gap-2 justify-content-end">

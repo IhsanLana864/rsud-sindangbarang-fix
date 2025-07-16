@@ -56,7 +56,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td class="d-flex align-items-center gap-3 ps-4 py-3">
                                                 <img src="{{ asset('storage/' . $banner->gambar) }}" alt="{{ $banner->keterangan }}"
-                                                    width="50" height="50" style="border-radius: 10px;">
+                                                    width="180" height="100" style="border-radius: 10px;">
                                             </td>
                                             <td>{{ $banner->keterangan }}</td>
                                             <td>

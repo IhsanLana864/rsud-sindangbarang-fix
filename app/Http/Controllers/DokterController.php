@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dokter;
+use Illuminate\Support\Facades\Storage;
 
 class DokterController extends Controller
 {
@@ -32,10 +33,8 @@ class DokterController extends Controller
             $fotoPath = $file->store('dokter', 'public'); 
         }
 
-        Dokter::create($request->all());
-
         Dokter::create([
-            'nama' => $equest->nama,,
+            'nama' => $request->nama,
             'spesifikasi' => $request->spesifikasi,
             'foto' => $fotoPath
         ]);

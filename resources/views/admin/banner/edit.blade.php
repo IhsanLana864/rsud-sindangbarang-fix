@@ -49,12 +49,12 @@
 
                         <div class="row">
                             <div class="col-12 mb-4">
-                                <label class="form-label">Logo</label>
+                                <label class="form-label">Banner</label>
                                 <input type="file" class="form-control mb-2" id="gambar_banner_input" name="gambar" accept="image/*">
                                 @error('gambar')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
-                                <small class="form-text text-muted">Biarkan kosong jika tidak ingin mengubah logo. Maksimal 2MB, format JPG, PNG, GIF</small>
+                                <small class="form-text text-muted">Biarkan kosong jika tidak ingin mengubah banner. Maksimal 2MB, format JPG, PNG, GIF</small>
 
                                 {{-- Tempat untuk preview gambar --}}
                                 <div class="mt-3" id="gambar_banner_preview_container" style="display: none;">
@@ -66,7 +66,7 @@
                                 @if ($banner->gambar)
                                     <div class="mt-3" id="current_gambar_container">
                                         <p>Gambar Saat Ini:</p>
-                                        <img src="{{ asset('storage/' . $banner->gambar) }}" alt="Logo Saat Ini" style="max-width: 300px; height: auto; border: 1px solid #ddd; padding: 5px;">
+                                        <img src="{{ asset('storage/' . $banner->gambar) }}" alt="Banner Saat Ini" style="max-width: 300px; height: auto; border: 1px solid #ddd; padding: 5px;">
                                     </div>
                                 @endif
                             </div>
